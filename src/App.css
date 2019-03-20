@@ -14,28 +14,33 @@
   letter-spacing: .1rem;
   padding-bottom: 3%;
 }
-.search{
-  font-weight: 400;
-  font-size: 1rem;
-  text-transform: lowercase;
-  font-family: 'IBM Plex Sans', sans-serif;
-}
 .search-bar{
   border:none;
   border-bottom: 3px solid rosybrown;
   padding: 10px 20px;
   margin-right: 2%;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: .1rem;
+
+  text-transform: uppercase;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 .search-btn{
   background-color: rosybrown;
   border: none;
-  color: black;
+  color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
-  border-radius: 16px;
-  padding: 10px 20px;
+  border-radius: 22px;
+  padding: 12px 25px;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 .weatherDisplay{
   display: flex;
