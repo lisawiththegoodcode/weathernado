@@ -3,9 +3,9 @@ import React from 'react';
 class Location extends React.Component{
     render(){
         return (
-            <form onSubmit={this.props.loadWeather}>
-              <input type="number" name="zip" placeholder="Zip Code" />
-              <button>Get Weather</button>
+            <form className="search" onSubmit={this.props.loadWeather}>
+              <input className="search-bar" type="number" name="zip" placeholder="Zip Code" />
+              <button className="search-btn">Get Weather</button>
             </form>
         )
     }

@@ -5,7 +5,7 @@ class Header extends React.Component{
         return (
           <header>
             <h1 className="logo">Weathernado</h1>
-            <h3 className="tagline">Should I be worried?</h3>
+            <h3 className="tagline">[Should I worry?]</h3>
           </header>
         )
     }

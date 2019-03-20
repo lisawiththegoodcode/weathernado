@@ -1,33 +1,72 @@
 .App {
   text-align: center;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  text-transform: uppercase;
+  font-size: 3rem;
+  letter-spacing: .8rem;
+  padding-top: 2%
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.tagline{
+  font-size:2rem;
+  text-transform: lowercase;
+  letter-spacing: .1rem;
+  padding-bottom: 3%;
+}
+.search{
+  font-weight: 400;
+  font-size: 1rem;
+  text-transform: lowercase;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+.search-bar{
+  border:none;
+  border-bottom: 3px solid rosybrown;
+  padding: 10px 20px;
+  margin-right: 2%;
+}
+.search-btn{
+  background-color: rosybrown;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 16px;
+  padding: 10px 20px;
+}
+.weatherDisplay{
   display: flex;
-  flex-direction: column;
+  flex-direction: center;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
 }
-
-.App-link {
-  color: #61dafb;
+.current{
+  border: .75px solid black;
+  border-radius: 10px;
+  width: 60%;
+  margin: 5%;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.1), -2px -2px 5px 2px rgba(0, 0, 0, 0.1);
 }
+.current h1{
+  letter-spacing: .11rem;
+  font-size: 2.5rem;
+  padding: 0;
+  margin: 1rem;
+  font-weight: 400;
+}
+.current p {
+  font-size:4rem;
+  padding: 0;
+  margin: 0;
+}
+.current h2{
+  font-weight: 400;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.current h3{
+  font-style: italic;
+  letter-spacing: .05rem;
 }

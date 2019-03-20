@@ -3,16 +3,6 @@ import '../App.css';
 import Header from  './Header';
 import Location from  './Location';
 import Weather from  './Weather';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faIgloo } from '@fortawesome/free-solid-svg-icons';
-
-// library.add(faIgloo)
-
-// const element = <FontAwesomeIcon icon={faCoffee}/>
 
 class App extends Component {
   state = {
@@ -21,26 +11,33 @@ class App extends Component {
     city: undefined,
     humidity: undefined,
     description: undefined,
+    fiveDayArray: undefined,
+    low: undefined,
+    high: undefined,
     error: undefined
   }
   
   getWeather = async (e) => {
     e.preventDefault();
-    const Api_Key = process.env.REACT_APP_API_KEY;
-    console.log(Api_Key);
+    const api_key = process.env.REACT_APP_API_KEY;
     const zipcode = e.target.elements.zip.value;
-    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode}&units=imperial&appid=${Api_Key}`);    
-    console.log(api_call);
-    const response = await api_call.json();
-    console.log(response);
+    const current_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode}&units=imperial&appid=${api_key}`);    
+    const current_response = await current_call.json();
+    console.log(current_response);
+    const forecast_call = await fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${zipcode}&units=imperial&appid=${api_key}`);
+    const forecast_response = await forecast_call.json();
+    console.log(forecast_response);
     
     this.setState({
-      temperature: response.main.temp,
-      zip: response.zip,
-      city: response.name,
-      country: response.sys.country,
-      humidity: response.main.humidity,
-      description: response.weather[0].description,
+      temperature: current_response.main.temp,
+      zip: current_response.zip,
+      city: current_response.name,
+      country: current_response.sys.country,
+      humidity: current_response.main.humidity,
+      description: current_response.weather[0].description,
+      fiveDayArray: forecast_response.list,
+      low: forecast_response.list[0].main.temp_min,
+      high: forecast_response.list[0].main.temp_max,
       error: ""
     })
   }
@@ -49,10 +46,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="landing">
-            <Header />
-            <Location loadWeather={this.getWeather} />
-        </div>
+        <Header />
+        <Location loadWeather={this.getWeather} />
         <Weather          
           temperature={this.state.temperature}
           zip={this.state.zip}
@@ -60,6 +55,9 @@ class App extends Component {
           country={this.state.country}
           humidity={this.state.humidity}
           description={this.state.description}
+          fiveDayArray={this.state.fiveDayArray}
+          low={this.state.low}
+          high={this.state.high}
           error={this.state.error} /> 
       </div>
     );
