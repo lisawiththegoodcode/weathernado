@@ -23,7 +23,7 @@ class App extends Component {
     const zipcode = e.target.elements.zip.value;
     const current_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode}&units=imperial&appid=${api_key}`);    
     const current_response = await current_call.json();
-    console.log(current_response);
+    console.log("CURRENT API RESPONSE: ", current_response);
     const forecast_call = await fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${zipcode}&units=imperial&appid=${api_key}`);
     const forecast_response = await forecast_call.json();
     console.log(forecast_response);
