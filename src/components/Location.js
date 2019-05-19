@@ -5,7 +5,7 @@ class Location extends React.Component{
         return (
             <form className="search" onSubmit={this.props.loadWeather}>
               <input className="search-bar" type="number" name="zip" placeholder="Zip Code" />
-              <button className="search-btn">Get Weather</button>
+              <button className="search-btn btn">Get Weather</button>
             </form>
         )
     }
